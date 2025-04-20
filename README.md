@@ -64,7 +64,7 @@ This tool is intended for educational and lawful forensic investigations only.
 ### Option 1: Clone with Git (recommended)
 
 ```bash
-git clone https://github.com/yourusername/ForenZilla.git
+git clone https://github.com/ipapidi/ForenZilla.git
 cd ForenZilla
 chmod +x install.sh
 ./install.sh
@@ -72,7 +72,7 @@ chmod +x install.sh
 
 ### Option 2: Download Manually
 
-1. [Download the ZIP](https://github.com/yourusername/ForenZilla/archive/refs/heads/main.zip)  
+1. [Download the ZIP](https://github.com/ipapidi/ForenZilla/archive/refs/heads/main.zip)  
 2. Extract the contents  
 3. Open a terminal in the extracted folder and run:
 
