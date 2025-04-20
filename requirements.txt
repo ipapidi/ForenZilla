@@ -1,0 +1,9 @@
+pyqt5
+pylnk3
+pandas
+pyshark
+striprtf
+olefile
+Pillow
+scandir
+pefile
