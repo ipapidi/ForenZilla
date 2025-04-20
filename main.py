@@ -160,8 +160,11 @@ class ForenZilla(QWidget):
                 self.output.append(line)
                 log_action(f"[Email] {line}")
 
-if __name__ == "__main__":
+def main():
     app = QApplication(sys.argv)
     window = ForenZilla()
     window.show()
     sys.exit(app.exec_())
+
+if __name__ == "__main__":
+    main()
