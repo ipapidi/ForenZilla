@@ -36,3 +36,6 @@ dist/
 *.zip
 *.tar.gz
 *.egg-info/
+
+reports/carved/*
+!reports/carved/.gitkeep
