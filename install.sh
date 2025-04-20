@@ -2,24 +2,22 @@
 
 echo "[*] Installing ForenZilla locally..."
 
-# Step 1: Upgrade pip + install dependencies
-pip install --upgrade pip
-pip install -r requirements.txt
-
-# Step 2: Set install paths
+# Step 1: Set install paths
 INSTALL_DIR="$HOME/.local/share/ForenZilla"
 DESKTOP_DIR="$HOME/.local/share/applications"
 DESKTOP_FILE="$DESKTOP_DIR/forenzilla.desktop"
-ICON_PATH="$INSTALL_DIR/assets/forenzilla-icon.png"
+ICON_PATH="$INSTALL_DIR/assets/forenzilla_icon.png"
 
-# Step 3: Create folders
+# Step 2: Create required folders
 mkdir -p "$INSTALL_DIR"
 mkdir -p "$DESKTOP_DIR"
+mkdir -p "$INSTALL_DIR/logs"
+touch "$INSTALL_DIR/logs/actions.log"
 
-# Step 4: Copy files (ignore .git and venv)
+# Step 3: Copy all files except excluded ones
 rsync -av --exclude='install.sh' --exclude='.git' --exclude='venv' . "$INSTALL_DIR"
 
-# Step 5: Create launcher Python file
+# Step 4: Create launcher Python file
 cat > "$INSTALL_DIR/forenzilla_launcher.py" << EOF
 #!/usr/bin/env python3
 import os
@@ -34,7 +32,7 @@ EOF
 
 chmod +x "$INSTALL_DIR/forenzilla_launcher.py"
 
-# Step 6: Create .desktop shortcut
+# Step 5: Create .desktop shortcut
 cat > "$DESKTOP_FILE" << EOF
 [Desktop Entry]
 Name=ForenZilla
@@ -47,6 +45,13 @@ EOF
 
 chmod +x "$DESKTOP_FILE"
 
+echo ""
 echo "[✓] Installed to $INSTALL_DIR"
 echo "[✓] Desktop launcher created at $DESKTOP_FILE"
-echo "→ You may need to log out/in or run: update-desktop-database"
+echo "Log folder: $INSTALL_DIR/logs"
+echo ""
+echo "To launch ForenZilla, search for it in your system menu or run:"
+echo "   python3 $INSTALL_DIR/forenzilla_launcher.py"
+echo ""
+echo "If the launcher doesn't appear immediately, try:"
+echo "   update-desktop-database $DESKTOP_DIR"
