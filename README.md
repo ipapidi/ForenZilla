@@ -80,6 +80,29 @@ chmod +x install.sh
 chmod +x install.sh
 ./install.sh
 ```
+---
+
+## Python Package Setup
+
+> You **must** install the following packages before running ForenZilla:
+
+### Linux (Kali, Mint, Ubuntu):
+
+```bash
+sudo apt install tshark xdg-utils -y
+pip3 install pyqt5 pylnk3 pandas pyshark striprtf olefile Pillow pefile --break-system-packages
+mkdir -p logs && touch logs/actions.log
+```
+
+### MacOS:
+
+> You **must** install [Homebrew](https://brew.sh), then:
+
+```bash
+brew install tshark
+pip3 install pyqt5 pylnk3 pandas pyshark striprtf olefile Pillow pefile
+mkdir -p logs && touch logs/actions.log
+```
 
 ---
 
@@ -111,9 +134,10 @@ chmod +x install.sh
     <td>App icon used in GUI and launcher</td>
   </tr>
   <tr>
-    <td><code>requirements.txt</code></td>
-    <td>Python package requirements</td>
+    <td><code>logs/</code> folder</td>
+    <td>Must be manually created: <code>mkdir -p logs && touch logs/actions.log</code></td>
   </tr>
+
   <tr>
     <td><code>forenzilla_launcher.py</code></td>
     <td>Entry point for `.desktop` launch integration</td>
