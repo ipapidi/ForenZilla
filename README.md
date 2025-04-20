@@ -103,7 +103,24 @@ brew install tshark
 pip3 install pyqt5 pylnk3 pandas pyshark striprtf olefile Pillow pefile
 mkdir -p logs && touch logs/actions.log
 ```
+---
+## ❌ If You Haven’t Created a Virtual Environment
 
+> Recommended for Python isolation on macOS or Linux.
+
+```bash
+# Step 1: Create a virtual environment inside the ForenZilla folder
+python3 -m venv venv
+
+# Step 2: Activate the virtual environment
+source venv/bin/activate
+
+# Step 3: Install the required Python packages
+pip install pyqt5 pylnk3 pandas pyshark striprtf olefile Pillow pefile
+
+# Step 4: Run ForenZilla
+python3 forenzilla_launcher.py
+```
 ---
 
 ## Folder Overview
